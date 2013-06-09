@@ -1,4 +1,5 @@
 # Django settings for dimagi_math project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -83,7 +84,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'd7_ad7%k+qvgu(x2=+vfy$o)xl@y3x((5o8baiik!7=%zov##c'
+SECRET_KEY = os.environ.get("SECRET_KEY", None)
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -156,8 +157,6 @@ LOGGING = {
     }
 }
 
-
-import os
 
 DEBUG = os.environ.get('DJANGO_DEBUG', True)
 

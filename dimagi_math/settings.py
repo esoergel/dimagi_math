@@ -164,9 +164,9 @@ DEBUG = os.environ.get('DJANGO_DEBUG', True)
 if os.environ.get('DJANGO_ENV', None) == "PRODUCTION":
 
     import dj_database_url
-    DATABASES = {'default': dj_database_url.config(default='postgres://localhost/{{ project_name }}')}
+    DATABASES = {'default': dj_database_url.config()}
 
-
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 
